@@ -1,183 +1,260 @@
-* , *::before, *::after{
-    box-sizing: border-box;
-    padding: 0;
+/* Reset default margin and padding for all elements */
+* {
     margin: 0;
-}    
+    padding: 0;
+    box-sizing: border-box;
+}
 
 body {
-    margin: 0;
-    background: no-repeat center center fixed; 
-    background-size: cover;
-    color: white;
-    text-shadow: 0px 0px 20px #242424;
+    height: 100vh;
     font-family: "Roboto", sans-serif;
-    background-color: #242424;
-    background-blend-mode: difference;
 }
 
 main {
-    padding: 15px;
-    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    height: 100%;
 }
 
-div.top {
+.top, .bottom {
+    width: 100%;
+    height: 45px;
+    background-color: rgb(240, 235, 232);
+    padding: 0.5em;
+    font-size: 0.8rem;
+}
+
+.center {
+    align-self: center;
+    font-weight: 700;
+    font-size: 3rem;
+    color: azure;
+    text-shadow: 0px 0px 8px rgb(61, 61, 61);
+}
+
+.top {
     display: flex;
+    align-items: center;
     justify-content: space-between;
 }
 
-h1.time {
-    text-align: center;
-    font-size: 4rem;
-    font-weight: 500;
+.icon-container {
+    height: calc(45px - 1em);
+    width: calc(45px - 1em);
+    border: 1px solid black; 
 }
 
-div#crypto {
-    font-size: 1.3rem;
-}
-
-div#crypto > p {
-    margin: 0;
-}
-
-div#crypto-top {
+.tabs-container {
     display: flex;
     align-items: center;
-    margin-bottom: 5px;
+    justify-content: space-between;
+    gap: 1em
 }
 
-div#crypto-top > span {
-    margin-left: 10px;
-}
+.all-tabs, .fav-tabs {
+    position: relative;;
+} 
 
-div#weather {
+.all-tabs-toggle, .fav-tabs-toggle {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    align-self: flex-start;
-    margin-top: -20px;
+    padding: 0.5em;
+    border-radius: 5px;
+    background-color: rgb(212, 211, 189);
+    height: calc(45px - 1em);
+    width: 18vw;
+    cursor: pointer;
 }
 
-div#weather > img {
-    width: 60px;
-    margin-right: 10px;
-}
-
-p.weather-city {
+.all-tabs-list, .fav-tabs-list {
+    position: absolute;
+    top: 45px;
     width: 100%;
-    text-align: right;
-    margin: 0;
-    margin-top: -10px;
-    font-size: 1rem;
-    
-}
-
-p.weather-temp {
-    margin: 0;
-    font-size: 1.7rem;
-    margin-left: -10px;
-}
-
-p#author {
-    font-size: 1rem;
-    cursor: pointer;
-}
-
-.fa-arrow-up-right-from-square:hover {
-    color: lightskyblue
-}
-
-#read-author {
-    border-bottom: 2px dotted white;
-}
-
-/* tabs */
-
-div#opened-tabs-btn {
-    position: fixed;
-    right: auto;
-    height: fit-content;
-    padding: 1em 2em;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(10px);
-    /* background-color: #969191; */
-    background-blend-mode: overlay;
-    cursor: pointer;
-    transition: all 0.5s ease-in;
-    border-radius: 2px;
-}
-
-div#opened-tabs-title {
-    font-size: 1rem;
-    font-weight: 600;
-}
-
-.disabled{
-    display: none;
-}
-
-.tabs-list {
-    /* position: fixed; */
-    /* border: 1px solid red ; */
-    margin-top: 1em; 
-    max-height: 300px; 
+    max-height: 40vh;
+    background-color: rgb(212, 211, 189);
+    border-radius: 5px;
+    padding: 0.5em;
+    z-index: 1;
     overflow-y: scroll;
-    /* padding: 0;  */
-    width: 180px;
 }
 
-.tab{
+.tab-item {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: flex-start;
-    margin: 0.5em 0;
+    padding: 0.5em;
+    border-radius: 5px;
+    background-color: azure;
+    margin-bottom: 0.5em;
+    cursor: pointer;
 }
 
 .tab-icon {
-    width: 20px;
     height: 20px;
-    margin-right: 1em;
+    width: 20px;
 }
 
-.tab-url{
-    margin-right: auto;
-    color: white;
-
+.tab-info {
+    margin: 0 auto 0 0.5em;
 }
 
-.add-fav {
-    margin-right: 1em;
+.tab-url {
+    font-size: 0.7rem;
+    color: black;
+    opacity: 0.5;
+}
+
+.add-tab-to-bookmark {
+    color: rgb(122, 119, 119);
+    margin-right: 0.5em;
+}
+
+.tab-close {
+    color: rgb(122, 119, 119);
+}
+
+/* search */
+.search-container {
+    flex: 0.5;
+    position: relative;
+}
+
+.search-area {
+    background-color: azure;
+    padding: 0.3em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5em;
+    border-radius: 50px;
+    height: calc(45px - 1em);
+    box-shadow: 0px 0px 3px rgb(182, 179, 179);
+}
+
+.search-container input {
+    flex: 1;
+    height: 100%;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    /* font-size: 1rem; */
+    color: black;
+    padding: 0.5em;
+    border-radius: 50px;
+    font-size: 0.8rem;
+}
+
+.search-container input::placeholder {
+    color: black;
+    opacity: 0.5;
+}
+
+.search-icon {
+    padding: 0.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.search-suggestions {
+    position: absolute;
+    top: 45px;
+    width: 100%;
+    background-color: rgb(212, 211, 189);
+    border-radius: 5px;
+    padding: 0.5em;
+    z-index: 1;
+    cursor: pointer;
+    max-height: 40vh;
+    overflow-y: scroll;
+}
+
+.search-suggestions p {
+    margin-bottom: 0.5em;
+    padding: 0.5em;
+    background-color: azure;
+    border-radius: 5px;
+}
+
+
+
+/* utitity class */
+
+.hide {
+    display: none;
+}
+
+/* cursor scroll style */
+
+/* Custom scrollbar styling */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgb(122, 119, 119);
+    border-radius: 10px;
+    border: 2px solid rgb(212, 211, 189);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(100, 97, 97);
+}
+
+::-webkit-scrollbar-track {
+    background-color: rgb(240, 235, 232);
+    border-radius: 10px;
+}
+
+/* weather */
+
+.weather-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5em;
+    /* width: ; */
+    height: 100%;
+    padding: 0.5em;
+    background-color: rgb(212, 211, 189);
+    border-radius: 5px;
+    /* font-size: 0.5rem; */
+}
+.weather-icon {
+    height: 40px;
+    width: 40px;
+}
+.weather-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5em;
+    margin-right: 0.5em;
     font-weight: 600;
 }
 
-#add-fav:hover {
-    color: lightblue;
+@media (max-width: 768px) {
+    .top {
+        gap:1em;
+    }
+    .tabs-container {
+        gap: 0.5em;
+        /* margin-left: -5em; */
+    }
+    .all-tabs-toggle, .fav-tabs-toggle {
+        width: 23vw;
+    }
+    .weather-container {
+        font-size: 0.6rem;
+    }
+    .weather-info {
+        flex-direction: column;
+        gap: 0;
+        padding: 0.5em 0;
+    }
 }
-
-/* scroll bar stylling */
-
-::-webkit-scrollbar {
-    width: 10px;
-    height: 12px; /*not neccessary*/
-}
-  
-  /* Style the scrollbar track (the area the scrollbar moves along) */
-  ::-webkit-scrollbar-track {
-    background: #f1f1f1; /* Light gray background */
-    border-radius: 10px;
-  }
-  
-  /* Style the scrollbar thumb (the draggable part) */
-  ::-webkit-scrollbar-thumb {
-    background: #888; /* Gray thumb */
-    border-radius: 10px;
-    border: 3px solid #f1f1f1; /* Creates a gap between the thumb and track */
-  }
-  
-  /* Style the scrollbar thumb when hovering */
-  ::-webkit-scrollbar-thumb:hover {
-    background: #555; /* Darker gray when hovered */
-  }

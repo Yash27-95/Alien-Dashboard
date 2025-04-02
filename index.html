@@ -8,27 +8,60 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="index.css">
-        <title>Personal Dashboard</title>
+        <title>Alien Dashboard</title>
     </head>
     <body>
-        <main>    
+        <main> 
             <div class="top">
-                <div id="crypto">
-                    <div id="crypto-top"></div>
+                <div class="icon-container"></div>
+                <div class="tabs-container">
+                    <div class="all-tabs" id="show-all-tabs">
+                        <div class="all-tabs-toggle">
+                            <div class="tab-type">Show all tabs</div>
+                            <div class="tab-status"><i class="fa-solid fa-caret-down"></i></div>
+                        </div>
+                        <div class="all-tabs-list hide">
+                            list of all tabs
+                        </div>
+                    </div>
+                    <div class="fav-tabs" id="show-fav-tabs">
+                        <div class="fav-tabs-toggle">
+                            <div class="tab-type">Show fav tabs</div>
+                            <div class="tab-status"><i class="fa-solid fa-caret-down"></i></div>
+                        </div>
+                        <div class="fav-tabs-list hide">
+                            list of fav tabs
+                        </div>
+                    </div>
                 </div>
-                <div id="opened-tabs-btn">
-                    <div id="opened-tabs-title">See all tabs</div>
-                    <div id="opened-tabs-list" class="tabs-list disabled"></div>
+                <div class="search-container">
+                    <div class="search-area">
+                        <input type="text" name="search" class="search-input" placeholder="Search..." />
+                        <div class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></div> 
+                    </div>
+                    <div class="search-suggestions hide">
+
+                    </div>
                 </div>
-                <div id="weather"></div>
+                <div class="weather-container">
+                    <img src="" alt="Weather Icon" class="weather-icon" />
+                    <div class="weather-info">
+                        <div class="temperature"></div>
+                        <div class="weather-city"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="center">
+                <!-- Content for the center section -->
+            </div>
+
+
+            <div class="bottom">
+                Content for the bottom section
             </div>
             
-            <h1 id="time" class="time"></h1>
-            <p id="author">
-                By: <a id="read-author" ></a>
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
-            </p>
         </main>
-        <script src="index.js" type="module"></script>
+        <script src="new.js" type="module"></script>
     </body>
 </html>
